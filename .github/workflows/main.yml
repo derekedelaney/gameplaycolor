@@ -16,10 +16,7 @@ jobs:
         submodules: recursive
         fetch-depth: 0
 
-    - name: Install Pipenv
-      uses: VaultVulp/action-pipenv@v2.0.1
-
-    # Setup Python (faster than using Python container)
+    # Setup Python
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
@@ -33,6 +30,9 @@ jobs:
       with:
         path: ~/.local/share/virtualenvs
         key: ${{ runner.os }}-pipenv-${{ hashFiles('**/Pipfile.lock') }}
+
+    - name: Install dependencies
+      run: scripts/install-dependencies.sh
 
     - name: Build release
       env:
