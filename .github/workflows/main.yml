@@ -11,20 +11,13 @@ jobs:
     steps:
 
     - name: Checkout source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
         submodules: recursive
         fetch-depth: 0
 
-    # Setup Python
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: "3.9"
-
-    - name: Install pipenv
-      run: |
-        python -m pip install --upgrade pipenv wheel
+    - name: Install Pipenv
+      uses: dschep/install-pipenv-action@v1
 
     - name: Install dependencies
       run: scripts/install-dependencies.sh
