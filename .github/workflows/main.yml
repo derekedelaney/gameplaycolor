@@ -33,3 +33,8 @@ jobs:
       with:
         name: build-latest-release.tar.gz
         path: archives/build-latest-release.tar.gz
+
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: build
