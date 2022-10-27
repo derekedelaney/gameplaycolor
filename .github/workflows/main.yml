@@ -17,9 +17,10 @@ jobs:
         fetch-depth: 0
 
     - name: Install Pipenv
-      uses: VaultVulp/action-pipenv@v2.0.1
-      with:
-        command: scripts/install-dependencies.sh
+      uses: dschep/install-pipenv-action@v1
+
+    - name: Install dependencies
+      run: scripts/install-dependencies.sh
 
     - name: Build release
       env:
@@ -28,7 +29,7 @@ jobs:
       run: scripts/build.sh
 
     - name: Save artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v1
       with:
         name: build-latest-release.tar.gz
         path: archives/build-latest-release.tar.gz
