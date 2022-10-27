@@ -19,7 +19,7 @@ jobs:
     - name: Install Pipenv
       uses: VaultVulp/action-pipenv@v2.0.1
       with:
-        command: sh scripts/install-dependencies.sh
+        command: scripts/install-dependencies.sh
 
     - name: Build release
       env:
